@@ -1,0 +1,16 @@
+//single session tests
+EMPLOYEE0=TH00:01-09:00 	//Works only one week day from 00:01 to 09:00	: $224.58
+EMPLOYEE1=TH09:01-18:00 	//Works only one week day from 09:01 to 18:00	: $134.75
+EMPLOYEE2=TH18:01-00:00 	//Works only one week day from 18:01 to 00:00	: $119.67
+EMPLOYEE3=TH00:01-00:00 	//Works only one week day from 00:01 to 00:00, 
+							//it should result in the sum of the previous 
+							//three amounts of money						: $479 
+EMPLOYEE4=SA00:01-00:00 	//Works only one week end day from 00:01 to 00:00 : $598.75
+
+//overlapping tests
+EMPLOYEE5=MO10:00-12:00,MO08:00-13:00	//2*$15=$30
+EMPLOYEE6=MO10:00-12:00,MO12:00-13:00  //last session start time should be at least 12:01, 2*$15=$30
+
+//non overlapping tests
+EMPLOYEE7=MO10:00-12:00,MO08:00-09:00	//2hours*$15/hour+1Hour*$25/hour=$55
+EMPLOYEE8=MO10:00-12:00,MO13:00-14:00	//2*$15 + 1*$15 = $45
